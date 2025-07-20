@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+/*WE IMPORTED THE GOOGLE OUTFIT FONTS IN ABOVE LINE*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  font-family: Outfit;/*We improved the font of the words written on our web page, like font, New chat ,help etc*/
+}
+
+#root{
+  min-height: 100vh;/*minimum height element takes is 100% view port height, means full browser page*/
+  display: flex;
+  /* overflow: hidden; */
+  animation: fadeIn 1.5s;/*added animation to whole page*/
+ }
+
+ /*MAKING PAGE RESPONSIVE:*/
+ 
+ @keyframes fadeIn{
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity :1;
+  }
+ }

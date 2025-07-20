@@ -1,0 +1,194 @@
+.main{
+    flex: 1;/*using this,.main div can take up all the available space next to the sidebar,*/
+    min-height: 100vh;
+    padding-bottom: 15vh;/*bottom padding is 15% of the total vertical hright*/
+    position: relative;/*The element is positioned relative to its normal position in the document flow but in case of absolute ,The element is removed from the normal document flow, and is positioned relative to the nearest positioned ancestor (i.e., an ancestor with position: relative, absolute, or fixed).*/
+
+}
+.main .nav{
+   display: flex;/*display: flex turns an element into a flex container and its direct children become flex items.*/
+   align-items: center;
+   justify-content: space-between;/*means <p> and <img> both are at opposite corners*/
+   font-size: 22px;
+   padding: 20px;
+   color:#585858; 
+}
+.main .nav img{
+    width: 40px;
+    border-radius: 50%;
+} 
+.main-container{
+    max-width:900px;/*container can be smaller than 900px, for smaller screens ; but in big screens it wont grow beyong 900px*/
+    margin: auto;/*IT IS SHORT WAY OF WRITING:-> margin-left: auto; margin-right: auto ; ---->It automatically adjusts left and right margins, pushing the container into the center of the page horizontally , AND ,Works only if the element has a set width or max-width*/
+}
+
+.main .greet{
+    margin: 50px 0px;
+    font-size:56px ;
+    color:#c4c7c5;
+    font-weight:500;
+    padding:20px;
+}
+
+.main .greet span{/*this below lines give a gradient colored text effect */
+    background: -webkit-linear-gradient(16deg,#4b90ff,#ff5546);/*Creates a linear gradient background going at a 16-degree angle,The gradient starts with blue (#4b90ff) and ends with red-orange (#ff5546).*/
+   -webkit-background-clip: text;/*This clips the background to the shape of the text. the gradient is only shown inside the letters, not the entire element box.*/
+   background-clip: text;
+   -webkit-text-fill-color: transparent;/*Makes the actual text transparent so that only the background gradient (clipped to the text) is visible.*/
+}
+.main .cards{
+    display: grid;
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));/*autofill:fill as many columns as will fit in container; mcolumn must be at least 180px wide and 1frallows them to stretch , if there is any  remaining space left */
+    gap:15px;
+    padding:20px;
+}
+.main .card{
+    height: 200px;
+    padding: 15px;
+    background-color: #f0f4f9 ;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.main .card img{
+width: 35px;
+padding: 5px;
+position: absolute;/*“Place this element exactly 10px from the bottom and 10px from the right of the nearest ancestor that has position: relative (or absolute, fixed, sticky  ).HERE THAT ANCESTOR IS-->card div*/
+background-color: white;
+border-radius: 20px;
+ bottom: 10px; 
+right:10px;
+
+}
+.main .card p{
+    color :#585858;
+    font-size: 17px; 
+}
+.main .card:hover{
+background-color:#dfe4ea ;
+}
+
+.main-bottom {
+position: absolute;/*The .main-bottom is removed from the normal flow and positioned absolutely. It will anchor to the nearest ancestor with position: relative.So .main-bottom will be positioned relative to .main. */
+bottom: 0;/*to keep the main-bottom at the extreme bottom of the page*/
+width: 100%;/*It spans the full width of its parent (.main). BUT WILL NEVER GROW BEYONG 900PX bcz 900px is max width of main container*/
+max-width: 1000px;
+padding: 0px 20px;
+}
+
+.search-box{
+    display: flex;
+    align-items: center;/*if flex direction is row(default direction) then this aligns items accross cross/ perpendicular axis ; means the input box is at same distance from top and bottom of the main-bottom*/
+    justify-content: space-between;/*input box and 3 image are at extreme corner*/
+    gap: 20px;
+    background-color:  #f0f4f9 ;
+    padding :10px 20px;
+   border-radius: 50px;
+}
+
+.search-box img{
+    width:24px;
+    cursor: pointer;
+}
+
+.search-box input{
+    flex:1;/*inpuut box takes all remainign space, till the 3 images*/
+    background: transparent;
+    border :none;
+    outline:none;
+    padding:8px;
+    font-size: 18px;
+}
+
+.search-box div{/*for the container containging the 3 images*/
+display: flex;
+align-items: center;
+gap:15px;
+}
+
+.main .bottom-info{
+font-size: 13px;
+margin: 15px ;
+
+}
+/*when we click the menu icon then the width of remaining prtion of sidebar gets reduced bcz wehave used flex:1*/
+
+
+.result{
+    padding: 0px 5%;
+    max-height: 70vh;
+    overflow-y: scroll;/*made div scrollable*/
+
+}
+
+.result::-webkit-scrollbar{
+display: none;/*hide scrollbar*/
+}
+
+.result-title{
+    margin: 40px 0px;
+    display: flex;
+    align-items: center;/*since flex is default ro vise, so align items aligns it with vertical axis , */
+    gap: 20px;
+}
+
+.result img{
+    width: 40px;
+    border-radius:50px;
+}
+
+.result-data{
+    display: flex;
+    align-items: start;/*vertical axis ke respect mein gemini logo and result-data is aligned to start, means jaha se line sart ho rahi , logo is there only*/
+    gap:20px;
+}
+
+.loader{
+width: 100%;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+}
+
+.loader hr{
+    border-radius: 4px;
+    border: none;
+    background-color:#f6f7f8 ;
+    background: linear-gradient(to right,#9ed7ff,#ffffff,#9ed7ff);
+    background-size: 800px 50px;
+    height: 20px;
+    animation: loader 3s;
+}/*formed a loader good looking*/
+
+ @keyframes loader { /*forming animations for loader-->*/
+    0%{
+        background-position: -800px 0px;
+    }
+    100%{
+        background-position: 800px 0px;
+    }
+    
+ }
+
+ .result-data p{
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+ }
+/*MAKING IT RESPONSIVE*/
+  @media (max-width: 600px) {/*You're saying:“Don't let the input expand anymore. Fix its width to just 150px.”Now there’s a lot of extra space left in .search-box, because input stopped expanding.That empty space ?-->It lets the 3 image icons slide in and appear to visually overlap or sit inside the input bar, */
+    .main-bottom input{
+        flex:none;
+        width :150px/*input bar made small,3 images now fit inside the inut bar, in the phone view*/
+    }
+    .main-bottom img{/*SETTING image size*/
+      width:20px;
+    }
+    .search-box{
+        padding: 5px 10px;
+    }
+    .search-box div{/*increase gap between the  3 images*/
+        gap:5px;
+    }
+ }

@@ -1,0 +1,69 @@
+.sidebar{
+    min-height: 100vh;
+    display: inline-flex;/*Instead of acting like a block element,which takes up full width by default; the element becomes an inline-level flex container. It only takes up as much width as its content requires.*/
+    flex-direction: column;
+    justify-content: space-between;/*means top comp and bottom comp both are at corner ends*/
+    background-color:#f0f4f0;
+    padding: 25px 15px;
+}
+
+.sidebar img{/*size of all the images becomes 20px*/
+    width: 20px;
+}
+.sidebar .menu{
+    display: block;/*by default an img is always an inline element;means it has to be inline with other elements; we cant apply margin or padding on it; doesnt take full width of container, TO SOLVE THIS WE USE BLOCK*/
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.sidebar .new-chat{
+
+    margin-top: 50px;
+    display: inline-flex;/*element becomes inline level flex cntianer, takes only that muhc width that its content need; can sit to other inline/block elements*/
+    align-items: center;
+    gap: 10px;/*gives spacing  between child elements -> <img> and<p> inside a container.*/
+    padding: 10px 15px;
+    background-color: #e6eaf1;
+    border-radius: 50px;
+    font-size: 14px;
+    color: grey;
+    cursor: pointer;
+}
+
+.sidebar .recent{
+    display: flex;
+    flex-direction: column;
+animation: fadeIn 1.5s;
+}
+
+.sidebar .recent-title{
+    margin-top: 30px;
+   margin-bottom: 20px; 
+}
+.sidebar .recent-entry{
+display: flex;
+align-items: start;
+gap:10px;
+padding: 10px;
+padding-right:40px ;/*this paddig right also causes the sidebae to shift rightwards because there is no restriction like max-width: 250px in the .sidebar class*/
+border-radius: 50px;
+color: #282828;
+cursor: pointer;
+}    
+
+.sidebar .recent-entry:hover{/*effects shown only on hovering the mouse*/
+   background-color: #e2e6eb;
+}    
+.sidebar .bottom{
+    display: flex;
+    flex-direction: column;
+}
+.sidebar .bottom-item{
+padding-right:10px;
+cursor: pointer;
+}
+@media (max-width:600px){/*removed sidebar for phone like small screen devices*/
+    .sidebar{
+        display: none;
+    }
+}
